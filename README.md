@@ -168,7 +168,7 @@ Stop StickyQuery from affecting links that already have a URL query string
 
 ### Callbacks
 
-Stickyquery comes with two standard callbacks for your convenience
+StickyQuery comes with two standard callbacks for your convenience
 #### callbackBefore: `function(){}`,
 #### callbackAfter: `function(){}`,
 
