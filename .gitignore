@@ -1,0 +1,16 @@
+*~
+.DS_Store
+.svn
+.cvs
+*.bak
+*.swp
+
+#additional ignored files
+.env
+favicon.ico
+npm-debug.log
+yarn-error.log
+yarn.lock
+package-lock.jsons
+/node_modules
+/node_modules/
