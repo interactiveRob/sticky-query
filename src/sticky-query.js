@@ -12,18 +12,8 @@
         'use strict';
 
         let stickyQuery = {}; // Object for public APIs
-        let settings = {}; // Placeholder variables
-        // Default settings
-        let defaultOptions = {
-            allowedKeys: null,
-            excludeAnchors: true,
-            excludeJavascript: true,
-            excludeHasQuery: true,
-            excludeCustom: null,
-
-            callbackBefore: function() {},
-            callbackAfter: function() {},
-        };
+        let supports = !!document.querySelector; // Feature test
+        let settings; // Placeholder variables
 
         /**
          * Destroy the current initialization.
@@ -60,12 +50,27 @@
          * @public
          * @param {Object} options User settings
          */
-        stickyQuery.init = function(options = {}) {
+        stickyQuery.init = function(options) {
+            // Default settings
+            let defaults = {
+                allowedKeys: null,
+                excludeAnchors: true,
+                excludeJavascript: true,
+                excludeHasQuery: true,
+                excludeCustom: null,
+
+                callbackBefore: function() {},
+                callbackAfter: function() {},
+            };
+
+            // feature test
+            if (!supports) return;
+
             // Destroy any existing initializations
             stickyQuery.destroy();
 
             // Merge user options with defaults
-            settings = extend({}, defaultOptions, options);
+            settings = extend(defaults, options || {});
 
             new StickyQuery(settings);
         };
