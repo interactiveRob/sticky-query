@@ -30,6 +30,7 @@
 
             affectedLinks.forEach(function(link) {
                 let href = link.getAttribute('href');
+                let fragment = '';
 
                 if (href.indexOf('#') !== -1) {
                     let fragment = '#' + href.split('#')[1];

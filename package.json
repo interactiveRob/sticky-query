@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "test": "ava -v",
+    "test": "ava",
     "test:watch": "yarn ava --watch"
   },
   "author": "",
@@ -17,8 +17,14 @@
     "webpack-cli": "^3.3.9"
   },
   "ava": {
+    "verbose": true,
+    "tap": true,
+    "failWithoutAssertions": false,
     "require": [
       "./test/_setup-browser-env.js"
+    ],
+    "helpers": [
+      "./test/helpers/**/*"
     ]
   }
 }
