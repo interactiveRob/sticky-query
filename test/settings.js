@@ -57,13 +57,25 @@ test('Correct link count for `limitAllowedKeys`', (t) => {
 });
 
 test('Correct link count for `excludeHasQuery`', (t) => {
-    let { links, div } = getSampleData();
+    let { links } = getSampleData();
 
     new StickyQuery.init({
-        excludeHasQuery: true,
+        excludeHasQuery: false,
     });
 
     let validLinks = getValidLinks(links);
 
-    t.is(validLinks.length, 2);
+    t.is(validLinks.length, 3);
+});
+
+test('Correct link count for `excludeAnchors`', (t) => {
+    let { links } = getSampleData();
+
+    new StickyQuery.init({
+        excludeAnchors: false,
+    });
+
+    let validLinks = getValidLinks(links);
+
+    t.is(validLinks.length, 3);
 });

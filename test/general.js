@@ -1,6 +1,7 @@
 import test from 'ava';
 import StickyQuery from '../src/sticky-query';
 import { getValidLinks, getSampleData } from './helpers/utils';
+import config from './_config';
 
 test.before((t) => {
     let { div, links } = getSampleData();
@@ -8,6 +9,7 @@ test.before((t) => {
     new StickyQuery.init();
 
     t.context = {
+        div,
         markup: div.innerHTML,
         links,
         validLinks: getValidLinks(links),
@@ -15,9 +17,15 @@ test.before((t) => {
 });
 
 test('Data Attributes are Added', (t) => {
-    let context = t.context;
+    let { validLinks } = t.context;
 
-    t.is(context.validLinks.length, 2);
+    t.is(validLinks.length, 2);
+});
+
+test('Correct query string is added', (t) => {
+    let { validLinks } = t.context;
+
+    t.true(validLinks.every((link) => link.href.includes(config.queryString)));
 });
 
 test('Links have expected URL parameters', (t) => {
@@ -43,4 +51,20 @@ test('Hashed links maintain hash', (t) => {
     if (!link) t.fail();
 
     t.true(link.href.includes('#has-hash'));
+});
+
+test('Destroying works', (t) => {
+    let { div, links } = t.context;
+
+    console.log('BEFORE DESTROY');
+    links.forEach((l) => console.log(l.href));
+
+    StickyQuery.destroy();
+
+    let newLinks = [...div.querySelectorAll('a')];
+
+    console.log('AFTER DESTROY');
+    newLinks.forEach((l) => console.log(l.href));
+
+    t.true(newLinks.every((link) => !link.href.includes(config.queryString)));
 });

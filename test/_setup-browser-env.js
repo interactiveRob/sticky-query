@@ -1,5 +1,6 @@
 import browserEnv from 'browser-env';
+import config from './_config';
 
 browserEnv(['window', 'document'], {
-    url: 'https://localhost/?test-param=1&another-test=2&final-test=3',
+    url: `https://localhost/${config.queryString}`,
 });
