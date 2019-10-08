@@ -4,12 +4,31 @@
   "description": "A tiny, no dependencies, vanilla JS plugin to help you persist query strings across pages",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config webpack.config.js"
+    "webpack": "webpack --config webpack.config.js",
+    "build": "yarn webpack --mode production",
+    "watch": "yarn webpack --mode development --watch",
+    "test": "ava",
+    "test:watch": "yarn ava --watch"
   },
   "author": "",
-  "license": "Mozilla Public License Version 2.0",
+  "license": "MPL-2.0",
   "devDependencies": {
+    "ava": "^2.4.0",
+    "browser-env": "^3.2.6",
     "webpack": "^4.40.2",
     "webpack-cli": "^3.3.9"
+  },
+  "ava": {
+    "verbose": true,
+    "failWithoutAssertions": false,
+    "sources": [
+      "./dist/*.js"
+    ],
+    "require": [
+      "./test/_setup-browser-env.js"
+    ],
+    "helpers": [
+      "./test/helpers/**/*"
+    ]
   }
 }
