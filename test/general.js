@@ -6,7 +6,8 @@ import config from './_config';
 test.before((t) => {
     let { div, links } = getSampleData();
 
-    new StickyQuery.init();
+    new StickyQuery.init({
+    });
 
     t.context = {
         div,
@@ -66,5 +67,5 @@ test('Destroying works', (t) => {
     console.log('AFTER DESTROY');
     newLinks.forEach((l) => console.log(l.href));
 
-    t.true(newLinks.every((link) => !link.href.includes(config.queryString)));
+    t.true(newLinks.every((link) => !link.href.includes(config.queryString) || link.href.includes(window.location.href)));
 });
