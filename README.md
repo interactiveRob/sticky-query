@@ -67,7 +67,7 @@ Just before the closing `</body>` tag (or in your own DOM Content handler functi
 
 ```html
 <script>
-  new StickyQuery.init({
+  window.stickQuery.init({
     // options
   });
 </script>
@@ -95,7 +95,7 @@ Just before the closing `</body>` tag (or in your own DOM Content handler functi
 
 ```html
 <script>
-  new StickyQuery.init({
+  window.stickQuery.init({
     allowedKeys: 'utm_content, utm_campaign',
     excludeCustom: '.my-ignore',
     excludeAnchors: true,
@@ -117,7 +117,7 @@ Just before the closing `</body>` tag (or in your own DOM Content handler functi
 ## Callbacks
 
 ```javascript
-new stickyQuery.init({
+window.stickQuery.init({
   callbackBefore: function() {
     //
   },

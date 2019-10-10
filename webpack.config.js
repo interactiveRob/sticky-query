@@ -1,6 +1,5 @@
 // Webpack uses this to work with directories
 const path = require('path');
-const TerserPlugin = require('terser-webpack-plugin');
 
 // This is main configuration object.
 // Here you write different options and tell Webpack what to do
@@ -19,18 +18,15 @@ module.exports = (env, argv) => {
         output: {
             path: path.resolve(__dirname, 'dist'),
             filename: '[name].min.js',
+            /**
+             * more info:
+             * https://webpack.js.org/guides/author-libraries/#expose-the-library
+             *
+             * uncomment `libraryTarget` for `window.stickyQuery` to be exposed
+             * instead of `var stickyQuery`
+             */
+            library: 'stickyQuery',
+            // libraryTarget: 'window',
         },
-        optimization: {
-            minimize: true,
-            minimizer: [
-                new TerserPlugin({
-                    terserOptions: {
-                       mangle: {
-                        reserved: ['stickyQuery'],
-                       },
-                    },
-                  }),
-                ]
-          },
     };
 };
