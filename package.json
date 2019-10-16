@@ -6,7 +6,8 @@
   "scripts": {
     "webpack": "webpack --config webpack.config.js",
     "build": "yarn webpack --mode production",
-    "watch": "yarn webpack --mode development --watch",
+    "development": "yarn webpack --mode development",
+    "watch": "yarn development --watch",
     "test": "ava",
     "test:watch": "yarn ava --watch"
   },
