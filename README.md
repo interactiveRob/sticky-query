@@ -44,7 +44,7 @@ You can [download the files directly from GitHub (zip)][repo-master-zip].
 npm install sticky-query
 
 # yarn
-yarn install sticky-query
+yarn add sticky-query
 ```
 
 ```javscript
