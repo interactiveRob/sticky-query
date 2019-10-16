@@ -26,7 +26,6 @@ module.exports = (env, argv) => {
              * instead of `var stickyQuery`
              */
             library: 'stickyQuery',
-            // libraryTarget: 'window',
         },
     };
 };
