@@ -37,7 +37,7 @@ You can [download the files directly from GitHub (zip)][repo-master-zip].
 <script src="path/to/sticky-query.min.js"></script>
 ```
 
-### NPM <small>(coming soon)</small>
+### NPM
 
 ```bash
 # npm
@@ -55,10 +55,10 @@ import 'sticky-query';
 var StickyQuery = require('sticky-query');
 ```
 
-### CDN <small>(coming soon)</small>
+### CDN
 
 ```html
-<!--  -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sticky-query@1/dist/sticky-query.min.js"></script> 
 ```
 
 ## Usage
@@ -67,7 +67,7 @@ Just before the closing `</body>` tag (or in your own DOM Content handler functi
 
 ```html
 <script>
-  window.stickQuery.init({
+  stickyQuery.init({
     // options
   });
 </script>
@@ -95,7 +95,7 @@ Just before the closing `</body>` tag (or in your own DOM Content handler functi
 
 ```html
 <script>
-  window.stickQuery.init({
+  stickyQuery.init({
     allowedKeys: 'utm_content, utm_campaign',
     excludeCustom: '.my-ignore',
     excludeAnchors: true,
@@ -106,18 +106,18 @@ Just before the closing `</body>` tag (or in your own DOM Content handler functi
 </script>
 ```
 
-| Option              | Type      | Default | Description                                                               |
-| ------------------- | --------- | ------- | ------------------------------------------------------------------------- |
-| `allowedKeys`       | `String`  | `null`  | Limit which parameters will be persisted.                                 |
-| `excludeCustom`     | `String`  | `null`  | Stop from affecting certain links of your choosing.                       |
-| `excludeAnchors`    | `Boolean` | `true`  | Stop from affecting internal anchor links that point to the current page. |
-| `excludeJavascript` | `Boolean` | `true`  | Stop from affecting javascript dummy links.                               |
-| `excludeHasQuery`   | `Boolean` | `true`  | Stop from affecting links that already have a URL query string.           |
+| Option              | Type      | Default | Description                                                                    |
+| ------------------- | --------- | ------- | -------------------------------------------------------------------------      |
+| `allowedKeys`       | `String`  | `null`  | Limit which parameters will be persisted (separate multiple keys with commas). |
+| `excludeCustom`     | `String`  | `null`  | Stop from affecting certain links of your choosing (accepts a CSS selector).   |
+| `excludeAnchors`    | `Boolean` | `true`  | Stop from affecting internal anchor links that point to the current page.      |
+| `excludeJavascript` | `Boolean` | `true`  | Stop from affecting javascript dummy links.                                    |
+| `excludeHasQuery`   | `Boolean` | `true`  | Stop from affecting links that already have a URL query string.                |
 
 ## Callbacks
 
 ```javascript
-window.stickQuery.init({
+stickyQuery.init({
   callbackBefore: function() {
     //
   },

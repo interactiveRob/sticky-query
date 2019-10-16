@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <!-- Place favicon.ico in the root directory -->
 
-        <script type="text/javascript" src="dist/sticky-query.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sticky-query/dist/sticky-query.min.js"></script> 
         <script type="text/javascript">
             //sample init
             document.addEventListener('DOMContentLoaded', function() {
@@ -16,7 +16,7 @@
                     console.log('callback happened');
                 };
 
-                window.stickyQuery.init({
+                stickyQuery.init({
                     allowedKeys: 'utm_content, utm_campaign',
                     excludeCustom: '.my-ignore',
                     callbackBefore: callback_fn,
