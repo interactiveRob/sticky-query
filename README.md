@@ -101,7 +101,6 @@ Just before the closing `</body>` tag (or in your own DOM Content handler functi
     excludeAnchors: true,
     excludeJavascript: true,
     excludeHasQuery: true,
-    excludeCustom: null,
   });
 </script>
 ```
@@ -127,17 +126,39 @@ stickyQuery.init({
 });
 ```
 
-| Option           | Params | Description            |
+| Callback         | Params | Description            |
 | ---------------- | ------ | ---------------------- |
 | `callbackBefore` | `none` | Before initialization. |
 | `callbackAfter`  | `none` | After initialization.  |
 
 ## Methods
 
-| Option    | Arguments         | Description              |
+| Method    | Arguments         | Description              |
 | --------- | ----------------- | ------------------------ |
 | `init`    | `options: object` | Initializes StickyQuery. |
 | `destroy` | `none`            | Destroys StickyQuery.    |
+
+## Implementation tricks and examples
+
+#### Exclude links that contain a certain URL
+
+```html
+<script>
+  stickyQuery.init({
+    excludeCustom: '[href*=google.com]',
+  });
+</script>
+```
+
+#### Only apply StickyQuery to links that have a specific selector
+
+```html
+<script>
+  stickyQuery.init({
+    excludeCustom: 'not(.sticky-query-apply)',
+  });
+</script>
+```
 
 ## License
 
