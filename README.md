@@ -52,7 +52,7 @@ yarn add sticky-query
 import 'sticky-query';
 
 # ES5
-var StickyQuery = require('sticky-query');
+var stickyQuery = require('sticky-query');
 ```
 
 ### CDN
@@ -62,7 +62,6 @@ var StickyQuery = require('sticky-query');
 ```
 
 ## Usage
-
 Just before the closing `</body>` tag (or in your own DOM Content handler function) initialize StickyQuery as follows:
 
 ```html
