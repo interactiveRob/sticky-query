@@ -155,7 +155,7 @@ stickyQuery.init({
 ```html
 <script>
   stickyQuery.init({
-    excludeCustom: 'not(.sticky-query-apply)',
+    excludeCustom: ':not(.sticky-query-apply)',
   });
 </script>
 ```
