@@ -1,6 +1,6 @@
 {
   "name": "sticky-query",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A tiny, no dependencies, vanilla JS plugin to help you persist query strings across pages",
   "main": "index.js",
   "scripts": {

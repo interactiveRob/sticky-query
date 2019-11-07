@@ -56,6 +56,7 @@
              * Default settings
              */
             let defaults = {
+                customSelector: null,
                 allowedKeys: null,
                 excludeAnchors: true,
                 excludeJavascript: true,
@@ -140,6 +141,10 @@
 
         StickyQuery.prototype.getExclusionRules = function() {
             return {
+                customSelector: {
+                    status: !!this.settings.customSelector,
+                    selector: this.settings.customSelector,
+                },
                 anchors: {
                     status: this.settings.excludeAnchors,
                     selector: ':not([href^="#"])',
@@ -204,6 +209,18 @@
 
                         queryLink = plainLink + this.persistedString + fragment;
                     }
+
+                    /**
+                     * Handle query string if one exists
+                     */
+                    if (plainLink.indexOf('?') !== -1) {
+                        let urlPieces = plainLink.split('?');
+
+                        plainLink = urlPieces[0];
+
+                        queryLink = plainLink + this.persistedString;
+                    }
+
 
                     link.setAttribute('href', queryLink);
                     link.setAttribute('data-sticky-query', true);
