@@ -12,7 +12,7 @@
     function(root) {
         'use strict';
 
-        let stickyQuery = {}; // Object for public APIs
+        let stickyQuery = {}; // Object for public APIs 
         let settings; // Placeholder variables
 
         /**
@@ -271,8 +271,6 @@
             let selectedLinks = nodelistToArray(
                 document.querySelectorAll(this.selector),
             );
-
-            console.log(this.selector);
 
             this.applyQueryParams(selectedLinks);
         };
