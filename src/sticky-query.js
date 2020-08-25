@@ -184,7 +184,9 @@
                 new String(),
             );
 
-            return 'a[href]' + excludedSelectors;
+            let base = this.settings.customSelector ? '' : 'a[href]';
+
+            return base + excludedSelectors;
         };
 
         StickyQuery.prototype.applyQueryParams = function(links) {
@@ -241,6 +243,12 @@
         };
 
         StickyQuery.prototype.init = function() {
+            
+            //If no query string in present in the current request url, bail.
+            if(this.url.indexOf('?')==-1){
+                return;
+            }
+
             /**
              * Collect parameters
              */
@@ -263,6 +271,8 @@
             let selectedLinks = nodelistToArray(
                 document.querySelectorAll(this.selector),
             );
+
+            console.log(this.selector);
 
             this.applyQueryParams(selectedLinks);
         };
