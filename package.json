@@ -1,8 +1,8 @@
 {
   "name": "sticky-query",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A tiny, no dependencies, vanilla JS plugin to help you persist query strings across pages",
-  "main": "index.js",
+  "main": "./dist/sticky-query.min.js",
   "scripts": {
     "webpack": "webpack --config webpack.config.js",
     "build": "yarn webpack --mode production",

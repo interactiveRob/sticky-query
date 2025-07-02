@@ -49,7 +49,7 @@ yarn add sticky-query
 
 ```javscript
 # ES6
-import 'sticky-query';
+import stickyQuery from 'sticky-query';
 
 # ES5
 var stickyQuery = require('sticky-query');
