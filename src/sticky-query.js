@@ -259,6 +259,7 @@ export default (function(root, factory) {
              * Build new query string
              */
             this.persistedString = this.buildPersistedQuery();
+            if(!this.persistedString) return;
 
             /**
              * Uncomment to debug Object
