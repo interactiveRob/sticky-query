@@ -122,6 +122,7 @@ export default (function(root, factory) {
                 [],
             );
 
+            if(!queryString.length) return;
             return '?' + queryString.join('&');
         };
 
